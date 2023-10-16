@@ -1,0 +1,39 @@
+#include<stdio.h>    
+void main(){
+
+    int r1,c1;
+    printf("Enter number of rows for First Matrix:\n");    
+    scanf("%d",&r1);    
+    printf("Enter number of columns for First Matrix:\n");     
+    scanf("%d",&c1); 
+    int arr1[r1][c1];
+    printf("Enter first matrix elements \n");    
+    for(int i=0;i<r1;i++)    
+        {    
+            for(int j=0;j<c1;j++)    
+            {    
+                scanf("%d",&arr1[i][j]);    
+            }    
+        }
+    for (int i = 0; i < r1; ++i) 
+        {	
+            int sum = 0;
+	for (int j = 0; j < c1; ++j) 
+            {
+                sum = sum + arr1[i][j] ;
+            }
+ 
+            printf("Sum of the %d row is = %d\n", i, sum);
+ 
+        }
+        for (int j = 0; j < r1; ++j) 
+        {   int sum=0;
+            for (int i = 0; i < c1; ++i)
+            {
+                sum = sum + arr1[i][j];
+            }
+ 
+            printf("Sum of the %d column is = %d\n", j, sum);    
+        }
+        
+}
