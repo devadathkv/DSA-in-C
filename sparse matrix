@@ -1,0 +1,58 @@
+#include<stdio.h>    
+int main(){
+
+    int r1,c1;
+    printf("Enter number of rows for First Matrix:\n");    
+    scanf("%d",&r1);    
+    printf("Enter number of columns for First Matrix:\n");     
+    scanf("%d",&c1); 
+    int arr1[r1][c1];
+    printf("Enter first matrix elements \n");    
+    for(int i=0;i<r1;i++)    
+        {    
+            for(int j=0;j<c1;j++)    
+            {    
+                scanf("%d",&arr1[i][j]);    
+            }    
+        }
+    int size = 0,key;  
+    for(int i=0; i<r1; i++)  
+    {  
+        for(int j=0; j<c1; j++)  
+        {  
+            if(arr1[i][j]!=0)  
+            {  
+            	key=arr1[i][j];
+            	printf("%d",arr1[i][j]);
+                size++;         
+            }  
+        }  
+    }
+    printf("Total non zero elemets are %d",size);
+    
+    int matrix[3][size];   
+     int k=0;  
+    for(int i=0; i<r1; i++)  
+    {  
+        for(int j=0; j<c1; j++)  
+        {  
+            if(arr1[i][j]!=0)  
+            {  
+                matrix[0][k] = i;  
+                matrix[1][k] = j;  
+                matrix[2][k] = arr1[i][j];  
+                k++;  
+            }  
+      }  
+    }
+    for(int i=0 ;i<3; i++)  
+    {  
+        for(int j=0; j<size; j++)  
+        {  
+            printf("%d ", matrix[i][j]);  
+            printf("\t");  
+        }  
+        printf("\n");  
+    }  
+    return 0;  
+}
