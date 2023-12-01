@@ -1,0 +1,79 @@
+#include<stdlib.h>
+#include <stdio.h>
+
+struct Node {
+    int coeff;
+    int expo;
+    struct Node *next;
+};
+
+struct Node *head = NULL;
+
+struct Node *createNew(int coeff, int expo){
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    if(newnode==NULL){
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    else{
+        newnode->expo = expo;
+        newnode->coeff = coeff;
+        newnode->next = NULL;
+        return newnode;
+    }
+}
+
+void insertNew(int coeff,int expo){
+    struct Node *newTerm = createNew(coeff,expo);
+    if(head==NULL){
+        head=newTerm;
+    }
+    else{
+        struct Node *temp = head;
+        while(temp->next!=NULL){
+            temp= temp->next;
+        }
+        temp->next = newTerm;
+    }
+}
+
+void display(){
+   struct Node *temp = head;
+   while(temp!=NULL){
+       printf("%d + x^%d",temp->coeff,temp->expo);
+       temp = temp->next;
+       printf("\n");
+   }
+}
+
+
+int main()
+{
+    int num_terms,coeff,exp;
+    printf("Enter the number of terms for polynomial 1: ");
+    scanf("%d", &num_terms);
+
+    printf("Enter coefficients and exponents for polynomial 1:\n");
+    for (int i = 0; i < num_terms; i++) {
+        printf("Coefficient %d: ", i + 1);
+        scanf("%d", &coeff);
+        printf("Exponent %d: ", i + 1);
+        scanf("%d", &exp);
+        insertNew(coeff, exp);
+    }
+    display();
+
+    printf("Enter the number of terms for polynomial 2: ");
+    scanf("%d", &num_terms);
+
+    printf("Enter coefficients and exponents for polynomial 2:\n");
+    for (int i = 0; i < num_terms; i++) {
+        printf("Coefficient %d: ", i + 1);
+        scanf("%d", &coeff);
+        printf("Exponent %d: ", i + 1);
+        scanf("%d", &exp);
+        insertNew(coeff, exp);
+    }
+    display();
+    return 0;
+}
