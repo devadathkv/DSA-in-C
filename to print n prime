@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    int count=0;
+    int no=2;
+    printf("Enter n : ");
+    scanf("%d",&n);
+    if(n==1){
+        printf("2");
+    }
+    else{
+        while(count<n){
+            int h=0;
+            for(int i=1;i<=no;i++){
+                if(no%i==0){
+                    h++;
+                }
+            }
+            if(h==2){
+                printf("%d \t",no);
+                count++;
+                no++;
+            }
+            else{
+                no++;
+            }
+            
+        }
+    }
+    return 0;
+}
